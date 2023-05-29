@@ -1,0 +1,236 @@
+/*Raleway Google Font*/
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+:root{
+
+  /*colors*/
+  --col-white:#fff;
+  --col-pale-blue: hsl(243, 100%, 93%);
+  --col-grayish-blue: hsl(229, 7%, 55%);
+  --col-dark-blue: hsl(228, 56%, 26%);
+  --col-very-dark-blue: hsl(229, 57%, 11%);
+
+  /*gradient*/
+  --gradient: linear-gradient(45deg, hsl(6,100%,80%), hsl(335,100%,65%));
+  /*radius*/
+  --radius:7px;
+
+}
+*{
+	padding:0;
+	margin:0;
+	box-sizing:border-box;
+  font-family: 'Raleway', sans-serif;
+}
+body{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--col-very-dark-blue);
+  flex-direction: column;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 700,
+  'GRAD' 0,
+  'opsz' 48
+}
+/*background*/
+.top-container{
+  height: 50vh;
+  width:100%;
+}
+.bottom-container{
+  height: 50vh;
+  width: 100%;
+  position: relative;
+  background-image: url(../images/bg-desktop.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container{
+  display: flex;
+  align-items: flex-end;
+  width: 840px;
+  justify-content: space-between;
+  margin: -6.5rem auto 0px auto;
+}
+/*----------------------------
+------LOGO, INPUT BOXES-------
+-----------------------------*/
+.data-input-folders{
+  background-color: var(--col-dark-blue);
+  padding: 2rem 8rem 2rem 2rem;
+  border-radius: 7px 95px 7px 7px;
+  margin-right: 1.5rem;
+}
+.logo{
+  max-width: 120px;
+  margin-bottom: 1.2rem;
+}
+.folders{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 1rem;
+}
+.folder{
+  background-color: var(--col-very-dark-blue);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 45px;
+  height: 45px;
+}
+.folder:hover{
+  cursor: pointer;
+}
+.folder:first-child{
+  margin-left: 0px;
+}
+
+/*----------------------------
+-----------STORAGE------------
+-----------------------------*/
+.storage-box{
+  background-color: var(--col-dark-blue);
+  padding: 2rem;
+  border-radius: var(--radius);
+  position: relative;
+  width: 100%;
+}
+/*DATA LEFT*/
+.storage-left-box{
+  position: absolute;
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  right: calc(0% + 2rem);
+  top: -54px;
+}
+.storage-left-box::after{
+  content: '\0025E5';
+  color: #ffffff;
+  position: absolute;
+  right: -3px;
+  bottom: -33px;
+  font-size: 39px;
+}
+.storage-left-box p{
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--col-grayish-blue);
+  display: flex;
+  align-items: center;
+  letter-spacing: 2px;
+}
+.storage-left-box p .left-number{
+  font-size: 2rem;
+  color: var(--col-very-dark-blue);
+  margin-right: 10px;
+}
+.storage-box>p{
+  color: rgba(255,255,255,0.7);
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+.storage-box>p .used-num{
+  font-weight: 700;
+  font-size: 1rem;
+}
+/*USED SPACE*/
+.used-space-box{
+  width: 100%;
+}
+.show-used-storage{
+  background-color: hsla(229, 57%, 11%,65%);
+  border-radius: 50px;
+  height: 24px;
+  overflow: hidden;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.fill-space{
+  display: flex;
+  align-items: center;
+  background-image:var(--gradient);
+  width: 75%;
+  border-radius: 50px;
+  height: 20px;
+  justify-content: flex-end;
+}
+.fill-space span{
+  color: var(--col-white);
+}
+.min-max{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.storage-values{
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.7);
+}
+
+/*----------------------------
+------------MEDIA-------------
+-----------------------------*/
+@media screen and (max-width:960px) {
+  .container{
+    flex-direction: column;
+    padding: 2rem;
+    width: 100%;
+    margin-top: -16rem;
+  }
+  .data-input-folders{
+    align-self: flex-start;
+    margin-bottom: 1rem;
+  }
+}
+@media screen and (max-width:660px) {
+  .storage-left-box{
+    top: unset;
+    bottom: -54px;
+    right: unset;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .storage-left-box::after{
+    display: none;
+  }
+}
+@media screen and (max-width:500px) {
+  .data-input-folders{
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .container{
+    margin-top: -18rem;
+  }
+  .storage-box{
+    padding-bottom: 4rem;
+  }
+  .storage-box>p{
+    margin-bottom: 15px;
+  }
+  .storage-left-box p .left-number{
+    font-size: 3rem;
+  }
+  .show-used-storage{
+    height: 18px;
+  }
+  .fill-space{
+    height: 12px;
+  }
+ .fill-space span{
+  font-size: 16px;
+ }
+}
